@@ -14,6 +14,9 @@ router.post('/submit', function(req, res, next) {
     id: req.body.puppyID
   });
   console.log(puppyArray);
-  res.render('puppies');
+  res.render('puppies', {
+    puppies: puppyArray,
+    success: 'You\'ve just added a new puppy!'
+  });
 });
 module.exports = router;
