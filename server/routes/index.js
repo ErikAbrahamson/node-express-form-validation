@@ -12,9 +12,9 @@ router.post('/submit', function(req, res, next) {
   var puppyInputName = req.body.puppyName;
   var puppyInputID = req.body.puppyID;
   var errors = puppyValidationCheck(puppyInputName, puppyInputID);
-  if (errors) {
+  if (errors.length > 0) {
     res.render('index', {
-      title: 'Errors',
+      title: 'Puppies!',
       errors: errors
     });
   } else {
@@ -33,10 +33,10 @@ function puppyValidationCheck(puppyName, puppyID) {
   var errorArray = [];
   var puppyNameTrimmed = puppyName.trim();
   var puppyIDTrimmed = puppyID.trim();
-  if(puppyNameTrimmed === '') {
+  if (puppyNameTrimmed === '') {
     errorArray.push("Name cannot be blank.");
   }
-  if(puppyIDTrimmed === '') {
+  if (puppyIDTrimmed === '') {
     errorArray.push('ID cannot be blank.');
   } else if (puppyIDTrimmed.length < 3) {
     errorArray.push('An ID must be at least 3 characters long.');
