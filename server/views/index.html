@@ -2,6 +2,9 @@
 {% block title %}{% endblock %}
 {% block content %}
   <div class="container">
+  {% for error in errors %}
+    <p class="alert alert-warning">{{ error }}</p>
+  {% endfor %}
     <h1>{{ title }}</h1>
     <p>We gonna get some puppies</p>
     <form action="/submit" method="POST">
