@@ -10,10 +10,23 @@
       <p>{{ success }}</p>
     </div>
 
-    <ul>
-    {% for puppy in puppies %}
-      <li>{{ puppy.name }}</li>
-    {% endfor %}
-    </ul>
+    <div class="bs-example" data-example-id="striped-table">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for puppy in puppies %}
+            <tr>
+              <td>{{ puppy.name }}</td>
+              <td>{{ puppy.id }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 {% endblock %}
